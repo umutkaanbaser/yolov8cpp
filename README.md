@@ -15,6 +15,7 @@ model = YOLO("yolov8n.pt")
 path = model.export(format="onnx",opset=12)  
 ```
 
+### 2. Create a copy from Inference
 Immediately afterwards, when we create a copy of the Inference class in our C++ coding, we declare its address.
 ```c++
  Inference inf("../model/yolov8n.onnx", cv::Size(640, 640), "", true); 
