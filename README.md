@@ -3,7 +3,7 @@ In this document, we looked at how we can run Yolov8 in the C++ environment. The
 ### How to Run
 You can use yolov8 in c++ with this project architecture.
 ```
-mkdir build & cd build
+mkdir build && cd build
 cmake ..
 make
 ./yolo_cpp
@@ -59,3 +59,18 @@ void drawDetections(cv::Mat &img,std::vector<Detection> &Detections){
 }
 ```
 We draw the results we obtained with the drawDetections function on our image.
+
+### Change Class List
+In the inference.h file, the classes vector is found on line 39. You can enter your classes here. Or you can empty this vector completely and declare it with a .txt file when creating a copy.
+```c++
+std::vector<std::string> classes{"person", "bicycle", "car", "motorcycle", .... # you can change this vector.
+```
+or
+```c++
+// in inference.h
+std::vector<std::string> classes{}; # set this vector empty. And give class text file adress to Inference initilazer.
+
+// in main.cpp
+Inference inf("../model/yolov8n.onnx", cv::Size(640, 640), "../model/classes.txt", true); 
+```
+
