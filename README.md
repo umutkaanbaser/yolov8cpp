@@ -1,6 +1,7 @@
 # Run yoloV8 in C++ | C++'da yolov8 nasıl çalıştırabiliriz ?
 In this document, we looked at how we can run Yolov8 in the C++ environment. The <a href="https://github.com/umutkaanbaser/yolov8cpp/tree/main/include/inference">inference</a> codes used in this document were taken from the <a href="https://github.com/ultralytics/ultralytics">ultralytics repository</a>. The sample video used was taken from <a href="https://www.pexels.com/video/video-of-famous-landmark-on-a-city-during-daytime-1721294/">pexel.com</a>.
 
+### 1. Convert To .onnx
 To run our model in the C++ environment, we first need to convert it to .onnx format.
 ```
 yolo export model=yolov8n.pt format=onnx opset=12
