@@ -89,7 +89,7 @@ inference.h dosyasında 39. satırda sınıflar vektörü bulunmaktadır. Sını
 ```c++
 std::vector<std::string> classes{"person", "bicycle", "car", "motorcycle", .... # you can change this vector.
 ```
-or
+or | yada
 ```c++
 // in inference.h
 std::vector<std::string> classes{}; # set this vector empty. And give class text file adress to Inference initilazer.
