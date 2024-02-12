@@ -24,4 +24,12 @@ Here, right after declaring the address of our model, we state the input size of
 As the third variable, we declare the <b>classes</b> ('classes.txt') on which the model was trained.<br/>
 As the 4th variable, we mention <b>GPU usage</b> (true,false). <br/>
 
-bu dökümanda yolov8'in c++ ortamında nasıl çalıştabiliriz ona baktık.
+### 3. Run Model
+We ran our model under the detectImage function. The Inference class runs the  model with opencv and converts the tensor output into understandable values, just like in Python.
+```c++
+std::vector<Detection> detectImage(cv::Mat &img,Inference &model){
+    std::vector<Detection> output = model.runInference(img);
+    return output;    
+}
+```
+The <i>runInference</i> method takes a cv::Mat object into it. Then, <i>Detection</i> class list is returned as output. Detection contains information such as box, confidence, class within the class.
