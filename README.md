@@ -1,9 +1,12 @@
-# Run yoloV8 in C++ | C++'da yoloV8 nasıl çalışır ?
+# Run yoloV8 in C++ | C++'da yoloV8 nasıl çalışır
 In this document, we looked at how we can run Yolov8 in the C++ environment. The <a href="https://github.com/umutkaanbaser/yolov8cpp/tree/main/include/inference">inference</a> codes used in this document were taken from the <a href="https://github.com/ultralytics/ultralytics">ultralytics repository</a>. The sample video used was taken from <a href="https://www.pexels.com/video/video-of-famous-landmark-on-a-city-during-daytime-1721294/">pexel.com</a>.
 
 Bu belgemizde Yolov8'i C++ ortamında nasıl çalıştırabileceğimize baktık. Bu belgede kullanılan <a href="https://github.com/umutkaanbaser/yolov8cpp/tree/main/include/inference">inference</a> kodları <a href="https://www.github.com/ultralytics/ultralytics">ultralytics deposu</a> adresinden alınmıştır ve Kullanılan örnek video <a href="https://www.pexels.com/video/video-of-famous-landmark-on-a-city-during-daytime-1721294/">pexel.com </a> adresinden alınmıştır.
-### How to Run
+
+### How to Run | Nasıl Çalıştırılır 
 You can use yolov8 in c++ with this project architecture.
+
+Bu proje mimarisini kendi yolov8 projelerinizde kullanabilirsiniz.
 ```
 mkdir build && cd build
 cmake ..
@@ -11,12 +14,14 @@ make
 ./yolo_cpp
 ```
 
-### 1. Convert To .onnx
-To run our model in the C++ environment, we first need to convert it to .onnx format.
+### 1. Convert To .onnx | .onnx'e Dönüştür
+To run yolov8 model in the C++ environment, we first need to convert it to .onnx format.
+
+yolov8 modelini C++ ortamında kullanmak için öncelikle .onnx biçimine dönüştürmemiz gerekmektedir.
 ```
 yolo export model=yolov8n.pt format=onnx opset=12
 ```
-or
+or | yada
 ```python
 from ultralytics import YOLO
 
@@ -25,7 +30,7 @@ model = YOLO("yolov8n.pt")
 path = model.export(format="onnx",opset=12)  
 ```
 
-### 2. Create a copy from Inference
+### 2. Create a copy from Inference | Inference'dan Bir Kopya Oluştur
 Immediately afterwards, when we create a copy of the Inference class in our C++ coding, we declare its address.
 ```c++
  Inference inf("../model/yolov8n.onnx", cv::Size(640, 640), "", true); 
