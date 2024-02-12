@@ -18,6 +18,6 @@ Immediately afterwards, when we create a copy of the Inference class in our C++ 
 ```c++
  Inference inf("../model/yolov8n.onnx", cv::Size(640, 640), "", true); 
 ```
-Here, right after declaring the address of our model, we state the input size of the model as the second variable with <b> cv::Size </b>. As the third variable, we declare the classes on which the model was trained. As the 4th variable, we mention GPU usage.
+Here, right after declaring the address of our model, we state the input size of the model as the second variable. As the third variable, we declare the <b>classes</b> ('classes.txt') on which the model was trained. As the 4th variable, we mention <b>GPU usage</b> (true,false).
 
 bu dökümanda yolov8'in c++ ortamında nasıl çalıştabiliriz ona baktık.
